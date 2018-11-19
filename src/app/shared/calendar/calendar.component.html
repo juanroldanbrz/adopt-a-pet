@@ -1,0 +1,31 @@
+<div class="audays-calendar">
+  <div class="audays-calendar__container">
+    <div class="audays-calendar__navs">
+      <div class="audays-calendar__month">
+        <button (click)="prevMonth()" class="audays-calendar__button fa fa-chevron-left"></button>
+        <span class="audays-calendar__title" [innerHTML]="currentDate.format('MMMM') +' '+ currentDate.format('YYYY')"></span>
+        <button (click)="nextMonth()" class="audays-calendar__button  fa fa-chevron-right"></button>
+      </div>
+    </div>
+    <div class="audays-calendar__grid">
+      <div class="audays-calendar__dayNames">
+        <div *ngFor="let name of dayNames" class="audays-calendar__day" [innerHTML]="name">
+        </div>
+      </div>
+      <div class="audays-calendar__weeks">
+        <div *ngFor="let week of weeks" class="audays-calendar__week">
+          <ng-container *ngFor="let day of week">
+            <div class="audays-calendar__weekday audays-calendar__weekday--inactive" *ngIf="!isSelectedMonth(day.mDate)">
+              <span class="audays-calendar__txt" [innerHTML]="day.mDate.date()"></span>
+            </div>
+            <div class="audays-calendar__weekday" *ngIf="isSelectedMonth(day.mDate)" (click)="selectDate($event, day)"
+              [class.audays-calendar__weekday--today]="day.today" [class.audays-calendar__weekday--inactive]="day.inactive"
+              [class.audays-calendar__weekday--selected]="day.selected">
+              <span class="audays-calendar__txt" [innerHTML]="day.mDate.date()"></span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

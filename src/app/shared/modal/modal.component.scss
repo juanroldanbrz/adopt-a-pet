@@ -1,0 +1,43 @@
+.umf-modal {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    &__container {
+        display: block;
+        width: 400px;
+        position: relative;
+        z-index: 9;
+        margin: 0 auto;
+    }
+    &__content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    &__close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 5;
+        font-size: 1.3rem;
+        text-decoration: none;
+        color: #aaa;
+        display: inline-block;
+        text-decoration: none;
+    }
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background: rgba(16, 16, 16, 0.9);
+    }
+}

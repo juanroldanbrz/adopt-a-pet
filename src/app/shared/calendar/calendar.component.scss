@@ -1,0 +1,136 @@
+.audays-calendar {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    font-size: 1rem;
+    z-index: 1;
+    border-radius: 6px;
+    box-shadow: 3px -1px 9px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.05);
+    background: #444;
+    &__container {
+        padding: 10px;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    &__button {
+        border: 0;
+        background: transparent;
+        color: #ffffff;
+        font-size: 13px;
+        cursor: pointer;
+        vertical-align: middle;
+        outline: none;
+    }
+    &__navs {
+        padding: 10px;
+        display: block;
+    }
+    &__month {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__year {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-family: 'Montserrat';
+    }
+    &__dayNames {
+        display: flex;
+        flex-direction: row;
+        color: #aaaaaa;
+        margin-bottom: 13px;
+        border-bottom: 1px solid rgba(255, 255, 255, .4);
+    }
+    &__weeks {
+        display: flex;
+        flex-direction: column;
+    }
+    &__week {
+        display: flex;
+        flex-direction: row;
+    }
+    &__txt {
+        font-weight: 300;
+        font-size: 1rem;
+        &--lighter {
+            color: #ffffff;
+        }
+        &--block {
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    }
+    &__title {
+        color: #ffffff;
+        line-height: 30px;
+        vertical-align: middle;
+    }
+    &__close {
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    &__icon {
+        background: #ffffff;
+        border-radius: 100%;
+        color: #ffb85b;
+        font-size: 20px;
+        width: 40px;
+        line-height: 40px;
+        height: 40px;
+        box-shadow: 3px -1px 9px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.05);
+    }
+    &__weekday {
+        flex: 1;
+        text-align: center;
+        height: 40px;
+        margin-bottom: 5px;
+        line-height: 40px;
+        font-weight: 100;
+        font-size: 12px;
+        color: #ffffff;
+        &--inactive {
+            color: #cccccc;
+            pointer-events: none;
+        }
+        &--today,
+        &--selected {
+            color: #ffffff;
+            border-radius: 100%;
+            background: rgba(255, 184, 91, 1);
+            .audays-calendar {
+                &__txt {
+                    font-weight: 600;
+                }
+            }
+        }
+        &:hover {
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 100%;
+            background: rgba(255, 184, 91, 0.6);
+        }
+    }
+    &__day {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        font-weight: 600;
+    }
+    &__block {
+        display: block;
+        width: calc(100% + 20px);
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: -10px;
+    }
+}

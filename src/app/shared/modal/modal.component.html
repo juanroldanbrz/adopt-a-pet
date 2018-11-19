@@ -1,0 +1,11 @@
+<ng-container *ngIf="visible">
+  <div class="umf-modal">
+    <div class="umf-modal__container">
+      <div class="umf-modal__content">
+        <a href="#" title="Modal close" class="umf-modal__close fa fa-remove" (click)="closeModal($event)"></a>
+        <ng-content></ng-content>
+      </div>
+    </div>
+    <div class="umf-modal__overlay" (click)="closeModal()"></div>
+  </div>
+</ng-container>

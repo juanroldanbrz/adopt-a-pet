@@ -1,0 +1,142 @@
+<main class="umf-layout">
+  <app-header [currentSection]="sectionIndex"></app-header>
+  <section id="home" class="umf-layout__section">
+    <div class="umf-slider">
+      <div class="umf-slider__background">
+        <div class="wrapper">
+          <div class="umf-slider__box">
+            <div class="umf-slider__content">
+              <h1 class="umf-slider__title">SAVE A LIFE,<span>ADOPT A PET</span></h1>
+              <span class="umf-slider__description">Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. </span>
+              <a href="#" title="Start now" class="umf-slider__button">Start now!</a>
+            </div>
+          </div>
+          <div class="umf-pagination">
+            <button [class.active]="slideActive === 0" data-slide="0" (click)="changeSlide(0)"></button>
+            <button [class.active]="slideActive === 1" data-slide="1" (click)="changeSlide(1)"></button>
+            <button [class.active]="slideActive === 2" data-slide="2" (click)="changeSlide(2)"></button>
+            <button [class.active]="slideActive === 3" data-slide="3" (click)="changeSlide(3)"></button>
+          </div>
+          <div class="umf-social">
+            <ul class="umf-social__list">
+              <li class="umf-social__item">
+                <a href="#" title="Facebook official page" class="umf-social__link"><span class="umf-social__icon fa fa-facebook"></span></a>
+              </li>
+              <li class="umf-social__item">
+                <a href="#" title="Twitter official page" class="umf-social__link"><span class="umf-social__icon fa fa-twitter"></span></a>
+              </li>
+              <li class="umf-social__item">
+                <a href="#" title="Instagram official page" class="umf-social__link"><span class="umf-social__icon fa fa-instagram"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="slider" class="umf-slider__container">
+        <div class="wrapper">
+          <div class="umf-slider__center">
+            <div id="slider-content">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="umf-layout__section">
+    <div class="umf-about">
+      <div class="wrapper">
+        <div class="umf-about__container">
+          <div class="umf-about__block">
+            <div class="umf-about__content">
+              <h2 class="umf-about__title">About us</h2>
+              <nav class="umf-about__navbar">
+                <ul class="umf-about__list">
+                  <li class="umf-about__item" *ngFor="let item of tabAboutData">
+                    <a href="#" [attr.title]="item.title" class="umf-about__link" [class.umf-about__link--active]="item.id === tabAboutIndex"
+                      (click)="setTabIndexAbout($event, item.id)" [innerHTML]="item.title">
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <span class="umf-about__description" [innerHTML]="tabAboutData[tabAboutIndex].description"></span>
+            </div>
+          </div>
+          <div class="umf-about__block">
+            <div class="umf-about__gallery">
+              <div class="umf-about__gallery umf-about__gallery--one" appFollowCursor></div>
+              <div class="umf-about__gallery umf-about__gallery--two" appFollowCursor></div>
+              <div class="umf-about__gallery umf-about__gallery--three" appFollowCursor></div>
+              <div class="umf-about__gallery umf-about__gallery--four" appFollowCursor></div>
+              <div class="umf-about__gallery umf-about__gallery--five" appFollowCursor></div>
+              <div class="umf-about__gallery umf-about__gallery--six" appFollowCursor></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="whatwedo" class="umf-layout__section">
+    <div class="umf-whatwedo">
+      <div class="wrapper">
+        <div class="umf-whatwedo__container">
+          <div class="umf-whatwedo__block">
+            <h2 class="umf-whatwedo__title">What we do</h2>
+            <span class="umf-whatwedo__description">Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+              Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+              into</span>
+
+          </div>
+          <div class="umf-whatwedo__block">
+            <div class="umf-carousel">
+              <ul class="umf-carousel__list">
+                <umf-carousel [data]="dataCarousel" [settings]="settingsCarousel">
+                  <ng-template #item let-item>
+                    <ng-container>
+                      <li class="umf-carousel__item"></li>
+                    </ng-container>
+                  </ng-template>
+                </umf-carousel>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="umf-layout__section">
+    <div class="umf-contact">
+      <div class="wrapper">
+        <div class="umf-contact__container">
+          <div class="umf-whatwedo__block">
+            <h2 class="umf-whatwedo__title">Contact us</h2>
+            <span class="umf-whatwedo__description">Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+              Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+              into</span>
+          </div>
+          <div class="umf-contact__block">
+            <form action="#" method="post" class="umf-contact__form">
+              <label class="umf-contact__label">
+                <input type="text" autocomplete="none" placeholder="Name" id="name" class="umf-contact__input" />
+              </label>
+              <label class="umf-contact__label">
+                <input type="text" placeholder="Surname" autocomplete="none" id="surname" class="umf-contact__input" />
+              </label>
+              <label class="umf-contact__label">
+                <input type="number" placeholder="Number Phone" autocomplete="none" class="umf-contact__input" id="numberphone" />
+              </label>
+              <textarea class="umf-contact__textarea" placeholder="Lorem ipsum bla bla bla..."></textarea>
+              <button type="button" class="umf-contact__button">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

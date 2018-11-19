@@ -1,0 +1,21 @@
+<div class="umf-carousel" (window:resize)="onResize($event)">
+  <div class="umf-carousel__container">
+    <div class="umf-carousel__block">
+      <ul class="umf-carousel__list" #carousel umf-carousel #nav (sendNext)="setNext($event)" (sendPrev)="setPrev($event)" (sendArrows)="setArrows($event)"
+        (sendDots)="setDots($event)" (dots)="setArrayDots($event)" (draggedNext)="nextItem($event)" (draggedPrev)="prevItem($event)">
+        <li *ngFor="let item of data" class="umf-carousel__item" #itemList data-carousel-item >
+          <div class="umf-carousel__item-container">
+            <ng-container *ngTemplateOutlet="itemTmpl, context: { $implicit: item }"></ng-container>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="umf-carousel__dots" *ngIf="settings.dots && (!prev || !next)">
+    <ul class="umf-carousel__list-dots">
+      <li class="umf-carousel__dot" *ngFor="let item of arrayDots;let i = index">
+        <a href="#" class="umf-carousel__link" [attr.title]="'Go to '+i" (click)="moveTo($event, item, i)" [class.umf-carousel__link--active]="index == i"></a>
+      </li>
+    </ul>
+  </div>
+</div>

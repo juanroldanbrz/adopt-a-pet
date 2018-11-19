@@ -1,0 +1,93 @@
+///*-------------------------------------------------------------------------
+//   # FRONT MODULES CONFIG
+//--------------------------------------------------------------------------*/
+
+//	CONTENT THIS FILE:
+//		# IMPORT FILE CONFIG SCSS
+//      # SETTINGS
+//		# TOOLS
+//      # GENERIC
+//		# BASE
+//		# OBJETCS
+//      # COMPONENTS
+//      # TRUMPS
+
+    ///*--------------------------------------------------------
+    //    # IMPORT FILE CONFIG SCSS
+    //----------------------------------------------------------*/
+    @import '_config__project'; 
+    
+    ///*--------------------------------------------------------
+    //    # SETTINGS
+    //----------------------------------------------------------*/
+
+    @import '00-settings/_settings__colors';
+    @import '00-settings/_settings__grid';
+    @import '00-settings/_settings__responsive';
+    @import '00-settings/_settings__z-index'; 
+    
+    ///*----------------------------------------------------------
+    //    # TOOLS
+    //----------------------------------------------------------*/
+
+    @import '01-tools/_tools__colors';
+    @import '01-tools/_tools__fonts';
+    @import '01-tools/_tools__percentaje';
+    @import '01-tools/_tools__pixel-to-em';
+    @import '01-tools/_tools__pixel-to-rem';
+    @import '01-tools/_tools__responsive';
+    @import '01-tools/_tools__z-index'; 
+    
+    // /*----------------------------------------------------------
+    //     # GENERIC
+    // ----------------------------------------------------------*/
+
+    @import "02-generic/_generic__accessible";
+    @import "02-generic/_generic__box-sizing";
+    @import "02-generic/_generic__clearfix";
+    @import "02-generic/_generic__keyframes";
+    @import "02-generic/_generic__fonts";
+    @import "02-generic/_generic__reset";
+    @import "font-awesome";
+    
+    // /*----------------------------------------------------------
+    //     # BASE
+    // ----------------------------------------------------------*/
+
+    @import '03-elements/_elements__body';
+    @import '03-elements/_elements__headings';
+    @import '03-elements/_elements__html';
+    @import '03-elements/_elements__image';
+    @import '03-elements/_elements__lists'; 
+    
+    // /*----------------------------------------------------------
+    //     # OBJETCS
+    // ----------------------------------------------------------*/
+
+    @import '04-objects/_objects__avatar';
+    @import '04-objects/_objects__debug';
+    @import '04-objects/_objects__layout';
+    @import '04-objects/_objects__list';
+    @import '04-objects/_objects__nora';
+    @import '04-objects/_objects__unit';
+    @import '04-objects/_objects__wrapper';
+    
+    // /*----------------------------------------------------------
+    //     # COMPONENTS
+    // ----------------------------------------------------------*/
+
+    @import '05-components/_audays-layout';
+    
+    
+    // /*----------------------------------------------------------
+    //     # TRUMPS
+    // ----------------------------------------------------------*/
+
+    @import '06-trumps/_trumps__float';
+    @import '06-trumps/_trumps__font-size';
+    @import '06-trumps/_trumps__hide';
+    @import '06-trumps/_trumps__margin';
+    @import '06-trumps/_trumps__padding';
+    @import '06-trumps/_trumps__position';
+    @import '06-trumps/_trumps__text-align';
+    @import '06-trumps/_trumps__text-transform';

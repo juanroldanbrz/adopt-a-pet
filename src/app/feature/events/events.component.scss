@@ -1,0 +1,97 @@
+.umf-events {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: calc(100% - 200px);
+    margin-top: 100px;
+    padding-left: 25px;
+    &__block {
+        width: calc(75% - 50px);
+        height: 100%;
+        display: inline-block;
+        margin-right: 25px;
+        vertical-align: top;
+        &:last-child {
+            width: 25%;
+        }
+    }
+    &__title {
+        margin: 0 0 35px 0;
+        padding: 0;
+        color: #666;
+        font-weight: 400;
+    }
+    &__button {
+        display: block;
+        border-radius: 6px;
+        margin-bottom: 25px;
+        color: #fff;
+        background: #ffb85b;
+        padding: 7px;
+        text-align: center;
+        text-decoration: none;
+    }
+    &__container {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+    }
+    &__list {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        margin: 0;
+        padding: 0 30px 0 0;
+    }
+    &__item {
+        display: block;
+        position: relative;
+        color: #fff;
+        padding: 0 60px 30px 0;
+        margin-bottom: 20px;
+        display: block;
+    }
+    &__fig {
+        display: inline-block;
+        width: 90px;
+        vertical-align: top;
+        height: 90px;
+        border-radius: 6px;
+        margin-right: 15px;
+        overflow: hidden;
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__info {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 115px);
+    }
+    &__text {
+        display: block;
+        font-size: 16px;
+        color: #ffb85b;
+        &--small {
+            font-size: 14px;
+            color: #666;
+        }
+    }
+    &__date {
+        background: #ffb85b;
+        color: #222;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 10px;
+        padding: 6px;
+        border-radius: 6px;
+    }
+}

@@ -1,0 +1,68 @@
+<app-modal class="umf-modal-login">
+  <div class="umf-modal-login__block">
+    <span class="umf-modal-login__txt umf-modal-login__txt--title">Welcome back, friend!</span>
+    <span class="umf-modal-login__txt">Register a new account in a few minutes or if you already have one, access it
+      quickly!</span>
+    <form action="" method="" class="umf-modal-login__form">
+      <legend class="umf-modal-login__legend">Form login</legend>
+      <fieldset class="umf-modal-login__fieldset">
+        <label for="username" class="umf-modal-login__label">Username</label>
+        <input id="username" type="text" placeholder="Username" class="umf-modal-login__input" />
+        <label for="password" class="umf-modal-login__label">Password</label>
+        <input type="password" type="password" placeholder="Password" class="umf-modal-login__input" />
+        <button type="button" class="umf-modal-login__button" (click)="login()">Login</button>
+        <a href="#" title="Sign up here!" class="umf-modal-login__link">Sign up here!</a>
+      </fieldset>
+    </form>
+  </div>
+</app-modal>
+
+<header class="umf-header" [class.umf-header--dark]="darkTheme">
+  <div class="umf-header__container">
+    <div class="wrapper">
+      <div class="umf-header__block">
+        <a href="#" title="Main logo" class="umf-header__logo">
+          <figure class="umf-header__figure">
+            <img src="" alt="" class="umf-header__image">
+          </figure>
+          <span>Pupfy</span>
+        </a>
+        <a href="#" title="Toggle aside" class="umf-header__aside" (click)="turnAside($event)"><span class="umf-header__aside-icon fa fa-bars"></span></a>
+        <div class="umf-header__content" [class.umf-header__content--active]="toggleAside">
+          <nav class="umf-header__navbar">
+            <ul class="umf-header__list">
+              <li class="umf-header__title">Menu</li>
+              <li class="umf-header__item" [class.umf-header__item--active]="currentSection === 0">
+                <a href="#" title="Home" class="umf-header__link" (click)="goToSection($event, '#home', 0)">Home</a>
+              </li>
+              <li class="umf-header__item" [class.umf-header__item--active]="currentSection === 1">
+                <a href="#" title="About us" class="umf-header__link" (click)="goToSection($event, '#about', 1)">About
+                  us</a>
+              </li>
+              <li class="umf-header__item" [class.umf-header__item--active]="currentSection === 2">
+                <a href="#" title="What we do" class="umf-header__link" (click)="goToSection($event, '#whatwedo', 2)">What
+                  we do</a>
+              </li>
+              <li class="umf-header__item" [class.umf-header__item--active]="currentSection === 3">
+                <a href="#" title="Contact" class="umf-header__link" (click)="goToSection($event, '#contact', 3)">Contact</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="umf-header__user">
+            <ul class="umf-header__list">
+                <li class="umf-header__title">Account</li>
+              <li class="umf-header__item"><a href="#" title="Sign in" class="umf-header__link" (click)="openModal($event)">Sign
+                  in</a></li>
+              <li class="umf-header__item"><a href="#" title="Sign up" class="umf-header__link" (click)="openModal($event)">Sign
+                  up</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<ng-container *ngIf="toggleAside">
+  <div class="umf-header__overlay" (click)="turnAside()"></div>
+</ng-container>

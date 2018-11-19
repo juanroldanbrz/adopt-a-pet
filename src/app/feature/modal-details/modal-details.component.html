@@ -1,0 +1,284 @@
+<ng-container *ngIf="visible">
+  <div class="umf-details">
+    <div class="umf-details__container">
+      <div class="umf-details__perspective">
+        <ng-container *ngIf="!isProfile">
+          <div class="umf-details__front">
+            <div class="umf-details__block">
+              <div class="umf-details__bitmap">
+                <figure class="umf-details__avatar">
+                  <img [attr.src]="data.image" alt="Avatar animal" class="umf-details__image" />
+                </figure>
+                <a href="#" title="Like it" class="umf-details__like"><span class="fa fa-heart umf-details__icon"></span></a>
+              </div>
+            </div>
+            <div class="umf-details__info">
+              <h2 class="umf-details__title" [innerHTML]="data.name"></h2>
+              <div class="umf-details__feature">
+                <div class="umf-details__types">
+                  <span class="umf-details__item"><span class="fa fa-paw umf-details__text">
+                    </span> Beagle
+                  </span>
+                  <span class="umf-details__item"><span class="fa fa-mars umf-details__text"></span> 2 months old</span>
+                  <span class="umf-details__item"><span class="fa fa-map-marker umf-details__text"></span>
+                    {{data.distance}}m of you </span>
+                </div>
+                <span class="umf-details__description">Lorem Ipsum
+                  is simply dummy text of the
+                  printing and typesetting industry.
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</span>
+              </div>
+              <a href="#" title="Apply for adoption" class="umf-details__button" (click)="activeFormProposal($event)">Apply
+                for adoption</a>
+            </div>
+          </div>
+          <div class="umf-details__back-proposal">
+            <div class="umf-details__back-proposal-container">
+              <h2 class="umf-details__title">Adoption proposal form</h2>
+              <span class="umf-details__description">This form will be sent to the owner of the pet for adoption. Be
+                sincere and responsible</span>
+              <form>
+                <input type="text" value="Adrian Perez" class="" />
+                <input type="text" value="C/ Ramdom street, 16" class="" />
+                <input type="text" value="48121458X" class="" />
+                <input type="text" value="+34 62011111" />
+                <span class="umf-form-commons__text">Do you have animals at home?</span>
+                <label class="umf-form-commons__checkbox">
+                  <input type="checkbox" id="switch">
+                  <span></span>
+                </label>
+                <span class="umf-form-commons__text">Do you have space in your home?</span>
+                <label class="umf-form-commons__checkbox">
+                  <input type="checkbox" id="switch">
+                  <span></span>
+                </label>
+                <span class="umf-form-commons__text">How much free time do you have for the pet?</span>
+                <label class="umf-form-commons__number">
+                  <input type="number" id="free-time">
+                </label>
+                <span class="umf-form-commons__text">Any comments? (Optional)</span>
+                <textarea>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+              </textarea>
+                <a href="#" class="" title="Back" (click)="backFlip($event)">Back</a>
+                <button type="button" (click)="flipCard($event)">Continue</button>
+              </form>
+            </div>
+          </div>
+          <div class="umf-details__back">
+            <form action="/" method="post" class="umf-details__back-form">
+              <div class="umf-details__back-header">
+                <div class="umf-details__back-block">
+                  <div class="umf-details__back-side">
+                    <figure class="umf-details__back-fig">
+                      <img src="https://scontent-mad1-1.cdninstagram.com/vp/f1fe698a920aec34924992a07ffb1693/5C838669/t51.2885-19/s320x320/15101613_210037332735416_6558101944991219712_a.jpg"
+                        alt="Avatar" class="umf-details__back-img" />
+                    </figure>
+                  </div>
+                  <div class="umf-details__back-side">
+                    <span class="umf-details__back-text">Adrian Perez</span>
+                    <span class="umf-details__back-description">Owner of <a href="#" title="Owner of Adrian Perez"
+                        class="umf-details__back-link">Pet
+                        name</a></span>
+                  </div>
+                </div>
+                <div class="umf-details__back-block">
+                  <a href="#" title="Open menu" class="umf-details__back-link"><span class="fa fa-bars umf-details__back-icon"></span></a>
+                </div>
+              </div>
+              <ul class="umf-details__back-list">
+
+                <li class="umf-details__back-item" *ngFor="let item of msg" [class.umf-details__back-item--left]="!item.you"
+                  [class.umf-details__back-item--right]="item.you">
+                  <span [innerHTML]="item.msg"></span>
+                </li>
+                <li>
+                  <span class="umf-details__back-date">Today, 5:38 PM</span>
+                </li>
+
+              </ul>
+              <div class="umf-details__back-bottom">
+                <label class="umf-details__back-label">
+                  <input type="text" placeholder="Type your message ..." class="umf-details__back-input" #input
+                    (keyup.enter)="sendMessage(input.value)" />
+                </label>
+                <button type="button" class="fa fa-paper-plane umf-details__back-send" (click)="sendMessage(input.value)"></button>
+              </div>
+            </form>
+          </div>
+        </ng-container>
+        <!-- profile -->
+        <ng-container *ngIf="isProfile">
+          <div class="umf-details__front">
+            <div class="umf-details__block">
+              <div class="umf-details__bitmap">
+                <figure class="umf-details__avatar">
+                  <img src="https://scontent-mad1-1.cdninstagram.com/vp/f1fe698a920aec34924992a07ffb1693/5C838669/t51.2885-19/s320x320/15101613_210037332735416_6558101944991219712_a.jpg"
+                    alt="Avatar user" class="umf-details__image" />
+                </figure>
+              </div>
+            </div>
+            <div class="umf-details__info">
+              <input type="text" class="umf-details__title" value="Adrian Perez Castillo" />
+              <div class="umf-details__feature">
+                <div class="umf-selector">
+                  <button type="button" class="umf-selector__button" [class.umf-selector__button--active]="statusSelectorCountry"
+                    (click)="turnSelectorCountry()">Spain</button>
+                  <ng-container *ngIf="statusSelectorCountry">
+                    <div class="umf-selector__container">
+                      <ul class="umf-selector__list">
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Spain</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Spain</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Spain</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Spain</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Spain</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="umf-selector">
+                  <button type="button" class="umf-selector__button" [class.umf-selector__button--active]="statusSelectorCity"
+                    (click)="turnSelectorCity()">Seville</button>
+                  <ng-container *ngIf="statusSelectorCity">
+                    <div class="umf-selector__container">
+                      <ul class="umf-selector__list">
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Seville</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Seville</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Seville</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Seville</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Seville</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Seville</a>
+                        </li>
+                        <li class="umf-selector__item">
+                          <a href="#" title class="umf-selector__link">Seville</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </ng-container>
+                </div>
+                <textarea class="umf-details__textarea">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</textarea>
+              </div>
+              <a href="#" title="Apply for adoption" class="umf-details__button umf-details__button--inactive" (click)="activeFormProposal($event)">Save
+                changes</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <svg class="umf-details__bubble umf-details__bubble--left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 373">
+        <g fill="none" fill-rule="evenodd" transform="translate(0 1)">
+          <ellipse cx="95.6128042" cy="39.1465171" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="185.486222" cy="66.1683089" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="140.549513" cy="111.204629" stroke="#FFF" stroke-width="1.0079999" opacity=".70000005" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="32.7014118" cy="102.197365" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="95.6128042" cy="138.22642" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="167.511538" cy="174.255476" stroke="#FFF" stroke-width="1.0079999" opacity=".70000005" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="113.587488" cy="210.284532" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="68.6507789" cy="183.26274" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="203.460905" cy="237.306323" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="158.524197" cy="282.342643" stroke="#FFF" stroke-width="1.0079999" opacity=".70000005" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="50.6760954" cy="273.335379" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="113.587488" cy="309.364435" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="86.6254625" cy="354.400754" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="149.536855" cy="3.11746145" stroke="#FFF" stroke-width="1.0079999" opacity=".70000005" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="192.014209" cy="8.14888747" fill="#FFF" opacity=".19999999" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="138.090159" cy="44.1779432" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="102.140792" cy="89.2142628" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="183.026868" cy="116.236055" fill="#FFF" opacity=".19999999" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="129.102817" cy="152.26511" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="3.28003218" cy="197.30143" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="48.216741" cy="224.323222" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="209.988893" cy="179.286902" fill="#FFF" opacity=".19999999" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="156.064842" cy="215.315958" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="120.115475" cy="260.352277" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="201.001551" cy="287.374069" fill="#FFF" opacity=".19999999" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="147.077501" cy="323.403125" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="21.2547157" cy="368.439444" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="57.2040828" cy="332.410389" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+        </g>
+      </svg>
+
+      <svg class="umf-details__bubble umf-details__bubble--right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 373">
+        <g fill="none" fill-rule="evenodd" transform="matrix(-1 0 0 1 213 1)">
+          <ellipse cx="95.6128042" cy="39.1465171" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="185.486222" cy="66.1683089" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="140.549513" cy="111.204629" stroke="#FFF" stroke-width="1.0079999" opacity=".70000005" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="32.7014118" cy="102.197365" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="95.6128042" cy="138.22642" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="167.511538" cy="174.255476" stroke="#FFF" stroke-width="1.0079999" opacity=".70000005" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="113.587488" cy="210.284532" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="68.6507789" cy="183.26274" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="203.460905" cy="237.306323" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="158.524197" cy="282.342643" stroke="#FFF" stroke-width="1.0079999" opacity=".70000005" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="50.6760954" cy="273.335379" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="113.587488" cy="309.364435" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="86.6254625" cy="354.400754" stroke="#FFF" stroke-width="1.0079999" opacity=".59999996" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="149.536855" cy="3.11746145" stroke="#FFF" stroke-width="1.0079999" opacity=".70000005" rx="3.01110706"
+            ry="3.01885561" />
+          <ellipse cx="192.014209" cy="8.14888747" fill="#FFF" opacity=".19999999" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="138.090159" cy="44.1779432" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="102.140792" cy="89.2142628" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="183.026868" cy="116.236055" fill="#FFF" opacity=".19999999" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="129.102817" cy="152.26511" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="3.28003218" cy="197.30143" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="48.216741" cy="224.323222" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="209.988893" cy="179.286902" fill="#FFF" opacity=".19999999" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="156.064842" cy="215.315958" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="120.115475" cy="260.352277" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="201.001551" cy="287.374069" fill="#FFF" opacity=".19999999" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="147.077501" cy="323.403125" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="21.2547157" cy="368.439444" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+          <ellipse cx="57.2040828" cy="332.410389" fill="#FFF" opacity=".70000005" rx="3.01110706" ry="3.01885561" />
+        </g>
+      </svg>
+
+    </div>
+    <div class="umf-details__overlay" (click)="closeModal()"></div>
+  </div>
+</ng-container>

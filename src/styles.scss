@@ -1,0 +1,121 @@
+::selection {
+    background-color: grey;
+    color: white;
+}
+
+::-moz-selection {
+    background-color: grey;
+    color: white;
+}
+
+.gm-style-cc {
+    display: none !important;
+}
+
+.umf-form-commons {
+    &__text {
+        font-size: 14px;
+        color: #666;
+    }
+    &__number {
+        position: relative;
+        display: block;
+        input {
+            padding: 10px;
+            border: 0;
+            background: transparent;
+            color: #fff;
+            width: auto;
+            border-bottom: 1px solid #666;
+            &:active,
+            &:focus {
+                outline: none;
+                border-bottom: 1px solid #f7a73f;
+            }
+        }
+    }
+    &__checkbox {
+        position: relative;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        display: block;
+        label {
+            display: inline-block;
+            height: 1.6em;
+            position: relative;
+        }
+        input {
+            position: absolute;
+            z-index: 9;
+            cursor: pointer;
+            opacity: 0;
+            margin: 4px 0 0;
+            &:checked+span {
+                background-color: #f7a73f;
+                &:after {
+                    position: relative;
+                    margin-left: 60px;
+                    color: #666;
+                    font-size: 14px;
+                }
+                &:before {
+                    left: 50%;
+                }
+            }
+        }
+        span {
+            height: 1.6em;
+            left: 0;
+            background: #C0CCDA;
+            -webkit-border-radius: 0.8em;
+            border-radius: 0.8em;
+            display: inline-block;
+            position: relative;
+            top: 0;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            width: 3em;
+            cursor: pointer;
+            &:after {
+                content: 'None';
+                position: relative;
+                margin-left: 60px;
+                color: #666;
+                font-size: 14px;
+            }
+            &::before {
+                content: '';
+                display: block;
+                height: 1.4em;
+                position: absolute;
+                width: 1.4em;
+                background-color: #fff;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                left: 0.1em;
+                top: 0.1em;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+                left: 0%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1370px) {
+    .wrapper {
+        max-width: 100%;
+    }
+}
+
+.umf-slider {
+    &__canvas {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+}
