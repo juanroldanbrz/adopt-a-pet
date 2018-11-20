@@ -92,6 +92,7 @@
         position: relative;
         margin: 0;
         padding: 0;
+        text-align: right;
         white-space: nowrap;
         float: right;
         width: 100%;
@@ -104,7 +105,7 @@
         width: 140px;
         height: 190px;
         &:last-child {
-            margin-right: 0;
+            margin-right: 40px;
         }
         &:hover {
             -webkit-animation-name: bounce;

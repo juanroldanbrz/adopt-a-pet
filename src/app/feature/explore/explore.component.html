@@ -21,22 +21,20 @@
   <agm-map #map [latitude]="lat" [longitude]="lng" [styles]="mapStyle" [disableDefaultUI]="true" [gestureHandling]="'greedy'"
     [zoom]="16" [maxZoom]="16" [zoomControl]="false" [minZoom]="16" [streetViewControl]="false" [usePanning]="true"
     (boundsChange)="checkMarkersInBounds($event)">
-    <agm-direction [origin]="myLocation" [destination]="locationPet" [provideRouteAlternatives]="true" [renderOptions]="renderOptions">
-    </agm-direction>
+    <agm-direction [origin]="myLocation" [destination]="locationPet" [provideRouteAlternatives]="true" [renderOptions]="renderOptions"></agm-direction>
     <agm-overlay [latitude]="lat" [longitude]="lng">
       <div class="umf-position"></div>
     </agm-overlay>
     <agm-marker *ngFor="let animal of data" #marker [latitude]="animal.lat" [longitude]="animal.lng" [iconUrl]="'./assets/images/marker2.png'"
       [attr.id]="animal.id" (markerClick)="openSectionDetails($event,animal)" [markerClickable]="true" [zIndex]="99999"
-      (mouseOver)="setHoverElement($event, marker.id)">
-    </agm-marker>
+      (mouseOver)="setHoverElement($event, marker.id, animal)"></agm-marker>
   </agm-map>
 
   <div class="umf-nearby-animals">
     <ul class="umf-nearby-animals__list">
 
       <li class="umf-nearby-animals__item" *ngFor="let item of animalsNearby" [attr.id]="item.id"
-        [class.umf-nearby-animals__item--active]="hoverAnimal == item.id" #itemAnimal (mouseenter)="setHoverElement(itemAnimal.id)">
+        [class.umf-nearby-animals__item--active]="hoverAnimal == item.id" #itemAnimal (mouseenter)="setHoverElement($event, itemAnimal.id, item)">
         <a href="#" [attr.title]="item.name" class="umf-nearby-animals__link" (click)="openSectionDetails($event, item)">
           <figure class="umf-nearby-animals__figure">
             <img [attr.src]="item.image" [attr.alt]="item.name" class="umf-nearby-animals__image" /></figure>

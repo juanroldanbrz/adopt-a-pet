@@ -636,6 +636,18 @@ main {
     #slider {
         max-width: 100% !important;
     }
+    .umf-contact {
+        &__block {
+            width: 100%;
+            &:last-child {
+                width: 100%;
+            }
+        }
+        &__form {
+            max-width: 70%;
+            margin: 0 auto;
+        }
+    }
     .umf-slider {
         &:after {
             content: '';
@@ -738,6 +750,11 @@ main {
             &:first-child {
                 margin-left: 0;
             }
+        }
+    }
+    .umf-contact {
+        &__form {
+            max-width: 100%;
         }
     }
 }
