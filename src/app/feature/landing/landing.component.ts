@@ -21,6 +21,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
   tabAboutData: any[] = [];
   tabAboutIndex: number = 0;
   sectionIndex: number = 0;
+  canvasElement: any;
+  canvasWidth: number = 0;
+  canvasHeight: number = 0;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
@@ -30,7 +33,10 @@ export class LandingComponent implements OnInit, AfterViewInit {
         this.sectionIndex = index;
       }
     }
+    // resize image #slider (canvas)
+    this.responsiveCanvas();
   }
+
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event) {
@@ -69,6 +75,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
       images: imgs,
       context: this
     });
+
+    this.canvasElement = document.querySelector('.umf-slider__canvas');
+
 
   }
 
@@ -113,22 +122,24 @@ export class LandingComponent implements OnInit, AfterViewInit {
     let images = opts.images, image;
 
     // let canvasWidth = images[0].clientWidth;
-    let canvasWidth = 1100;
+    // let canvasWidth = document.documentElement.clientWidth;
+    // let canvasHeight = document.documentElement.clientHeight;
     // let canvasHeight = images[0].clientHeight;
-    let canvasHeight = 1200;
+    opts.context.responsiveCanvas(opts.context);
+    // console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
     let parent = opts.parent;
     let renderWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     let renderHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
     let renderW, renderH;
 
-    if (renderWidth > canvasWidth) {
+    if (renderWidth > opts.context.canvasWidth) {
       renderW = renderWidth;
     } else {
-      renderW = canvasWidth;
+      renderW = opts.context.canvasWidth;
     }
 
-    renderH = canvasHeight;
+    renderH = opts.context.canvasHeight;
 
     let renderer = new THREE.WebGLRenderer({
       antialias: false,
@@ -138,7 +149,6 @@ export class LandingComponent implements OnInit, AfterViewInit {
     renderer.setClearColor(0x080D10, 1.0);
     renderer.setSize(renderW, renderH);
     parent.appendChild(renderer.domElement);
-    console.log(parent.querySelectorAll('canvas'));
     parent.querySelectorAll('canvas')[0].setAttribute('class', 'umf-slider__canvas')
     let loader = new THREE.TextureLoader();
     loader.crossOrigin = "anonymous";
@@ -222,5 +232,25 @@ export class LandingComponent implements OnInit, AfterViewInit {
   isInViewPort(element) {
     var elementTop = element.offsetTop;
     return (Math.round(window.scrollY) >= elementTop - 80) ? true : false;
+  }
+
+  responsiveCanvas() {
+    let width = window.innerWidth;
+    if (width > 1024) {
+      this.canvasWidth = 1367;
+      this.canvasHeight = 1374;
+    } else if (width < 1024 && width > 768) {
+      this.canvasWidth = 1024;
+      this.canvasHeight = 1115;
+    } else if (width < 768 && width > 320) {
+      this.canvasWidth = 768;
+      this.canvasHeight = 860;
+    } else if (width < 320) {
+      this.canvasWidth = 320;
+      this.canvasHeight = 600;
+    }
+    setTimeout(() => {
+      this.canvasElement.setAttribute('style', 'width: ' + this.canvasWidth + 'px;height:' + this.canvasHeight + 'px');
+    });
   }
 }

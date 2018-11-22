@@ -746,3 +746,14 @@
         }
     }
 }
+
+@media only screen and (max-width: 767px) {
+    .umf-details {
+        &__bubble {
+            display: none;
+        }
+        &__container {
+            width: 90%;
+        }
+    }
+}

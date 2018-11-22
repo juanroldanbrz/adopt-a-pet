@@ -27,6 +27,13 @@
             margin-right: 10px;
             color: #ffffff;
         }
+        &-scroll {
+            display: block;
+            width: 100%;
+            height: calc(100vh - 217px);
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
         &-image {
             display: block;
             width: 100%;
@@ -82,8 +89,8 @@
         }
         &-status {
             position: absolute;
-            top: 0;
-            right: 50%;
+            top: 15px;
+            right: 10px;
             font-size: 11px;
             padding: 3px 5px;
             border-radius: 6px;
@@ -155,6 +162,15 @@
         background: #222;
         vertical-align: top;
     }
+    &__overlay {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(40, 40, 40, 0.8);
+    }
     &__header {
         position: absolute;
         top: 20px;
@@ -163,7 +179,8 @@
         font-size: 0;
         width: 100%;
         &-container {
-            display: block;
+            display: flex;
+            align-items: center;
             width: 100%;
             position: relative;
             padding: 0 10px;
@@ -241,8 +258,8 @@
         &-notif {
             display: inline-block;
             position: absolute;
-            top: 5px;
-            right: 10px;
+            top: 3px;
+            right: 0;
             background: #ffb85b;
             color: #fff;
             text-align: center;
@@ -333,23 +350,48 @@
         &__aside {
             display: none;
             &--visible {
-                position: relative;
-                display: inline-block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: block;
                 width: 320px;
             }
         }
         &__block {
             width: 100%;
-            &--med-width {
-                width: calc(100% - 320px);
-            }
         }
         &__button {
             display: inline-block;
+            font-size: 19px;
         }
         &__header {
+            height: 50px;
+            max-height: 50px;
+            &-button {
+                font-size: 19px;
+                color: #ffffff;
+                right: 0;
+            }
+            &-group {
+                display: block;
+            }
+            &-icon {
+                font-size: 19px;
+            }
+            &-input {
+                display: none;
+            }
+            &-container {
+                max-width: 95%;
+                margin: 0 auto;
+                padding: 0;
+            }
+            &-info {
+                width: 76px;
+            }
             &-form {
-                width: calc(100% - 140px);
+                font-size: 1rem;
+                width: calc(100% - 113px);
             }
         }
     }

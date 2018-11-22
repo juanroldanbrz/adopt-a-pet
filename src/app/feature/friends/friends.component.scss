@@ -89,3 +89,11 @@
         border-radius: 100%
     }
 }
+
+@media only screen and (max-width: 1024px) {
+    .umf-friends {
+        &__item {
+            width: 33%;
+        }
+    }
+}

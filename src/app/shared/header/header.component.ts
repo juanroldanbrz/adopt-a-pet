@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   @Input() currentSection: number = 0;
   @Input() darkTheme: boolean = false;
   @ViewChild(ModalComponent) modal: ModalComponent;
-  toggleAside: boolean = false;
+  @Input() toggleAside: boolean = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router) { }
@@ -31,6 +31,9 @@ export class HeaderComponent implements OnInit {
         behavior: 'smooth'
       });
       this.currentSection = section;
+      if (this.toggleAside) {
+        this.toggleAside = false;
+      }
     }
   }
 

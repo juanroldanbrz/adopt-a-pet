@@ -13,29 +13,28 @@
           </a>
         </li>
         <li class="umf-mypets__item" *ngFor="let item of [{},{},{},{}]">
-          <a href="#" title="" class="umf-mypets__link">
+          <a href="#" title="" class="umf-mypets__link" (click)="$event.preventDefault()">
             <div class="umf-mypets__top">
               <ul class="umf-mypets__actions">
                 <li class="umf-mypets__actions-item">
-                  <a href="#" title="" class="umf-mypets__actions-link">
+                  <a href="#" title="" class="umf-mypets__actions-link" (click)="$event.preventDefault()">
                     <span class="umf-mypets__actions-icon fa fa-map-marker"></span>
                   </a>
                 </li>
                 <li class="umf-mypets__actions-item">
-                  <a href="#" title="" class="umf-mypets__actions-link">
+                  <a href="#" title="" class="umf-mypets__actions-link" (click)="$event.preventDefault()">
                     <span class="umf-mypets__actions-icon fa fa-pencil"></span>
                   </a>
                 </li>
                 <li class="umf-mypets__actions-item">
-                  <a href="#" title="" class="umf-mypets__actions-link">
+                  <a href="#" title="" class="umf-mypets__actions-link" (click)="$event.preventDefault()">
                     <span class="umf-mypets__actions-icon fa fa-trash"></span>
                   </a>
                 </li>
               </ul>
             </div>
             <figure class="umf-mypets__figure">
-              <img src="assets/images/about-2.jpg"
-                alt="Avatar" class="umf-mypets__image" />
+              <img src="assets/images/about-2.jpg" alt="Avatar" class="umf-mypets__image" />
             </figure>
             <div class="umf-mypets__bottom">
               <div class="umf-mypets__content">
@@ -49,10 +48,9 @@
     <h2 class="umf-mypets__title">My host house</h2>
     <ul class="umf-mypets__list">
       <li class="umf-mypets__item" *ngFor="let item of [{},{},{},{}]">
-        <a href="#" title="" class="umf-mypets__link">
+        <a href="#" title="" class="umf-mypets__link" (click)="$event.preventDefault()">
           <figure class="umf-mypets__figure">
-            <img src="assets/images/about-2.jpg"
-              alt="Avatar" class="umf-mypets__image" />
+            <img src="assets/images/about-2.jpg" alt="Avatar" class="umf-mypets__image" />
           </figure>
           <div class="umf-mypets__bottom">
             <div class="umf-mypets__content">

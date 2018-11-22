@@ -95,3 +95,19 @@
         border-radius: 6px;
     }
 }
+
+@media only screen and (max-width: 1024px) {
+    .umf-events {
+        &__block {
+            width: 100%;
+            display: block;
+            &:last-child {
+                display: none;
+                // width: 100%;
+                // display: block;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {}

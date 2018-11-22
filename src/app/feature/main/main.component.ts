@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, NgZone, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, NgZone, Output, EventEmitter, AfterViewInit, HostListener } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'google-maps';
 import { MapsAPILoader } from '@agm/core';
@@ -22,6 +22,15 @@ export class MainComponent implements AfterViewInit {
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, private route: Router) {
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    let width = window.innerWidth;
+    if (width > 767) {
+      this.asideVisible = false;
+    }
+
   }
 
 

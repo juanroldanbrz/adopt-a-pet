@@ -10,113 +10,123 @@
           Castillo</span>
         <span class="umf-main__aside-text umf-main__aside-city">Seville, Spain</span>
       </div>
-      <ul class="umf-main__aside-list">
-        <li class="umf-main__aside-item">
-          <a href="#" title="" class="umf-main__aside-link" [routerLink]="['explore']" routerLinkActive="umf-main__aside-link--active">
-            <span class="umf-main__aside-icon fa fa-map-o"></span>
-            <span class="umf-main__aside-text umf-main__aside-text--light">Explore</span></a>
-        </li>
-        <li class="umf-main__aside-item">
-          <a href="#" title="" class="umf-main__aside-link" [routerLink]="['events']" routerLinkActive="umf-main__aside-link--active">
-            <span class="umf-main__aside-icon fa fa-calendar-o"></span>
-            <span class="umf-main__aside-text umf-main__aside-text--light">Events</span></a>
-        </li>
-        <li class="umf-main__aside-item">
-          <a href="#" (click)="$event.preventDefault()" title="Shop section" class="umf-main__aside-link"
-            routerLinkActive="umf-main__aside-link--active">
-            <span class="umf-main__aside-icon fa fa-shopping-basket"></span>
-            <span class="umf-main__aside-text umf-main__aside-text--light">Shop</span>
-            <span class="umf-main__aside-status">SOON</span>
-          </a>
-        </li>
-      </ul>
-      <ul class="umf-main__aside-list">
-        <li class="umf-main__aside-item">
-          <a href="#" title="Go to profile" class="umf-main__aside-link" (click)="openProfile($event)">
-            <span class="umf-main__aside-icon fa fa-bars"></span>
-            <span class="umf-main__aside-text umf-main__aside-text--light">My profile</span>
-          </a>
-        </li>
-        <li class="umf-main__aside-item">
-          <a href="#" title="" class="umf-main__aside-link" [routerLink]="['mypets']" routerLinkActive="umf-main__aside-link--active">
-            <span class="umf-main__aside-icon fa fa-paw"></span>
-            <span class="umf-main__aside-text umf-main__aside-text--light">My pets</span></a>
-        </li>
-        <li class="umf-main__aside-item">
-          <a href="#" title="" class="umf-main__aside-link" [routerLink]="['friends']" routerLinkActive="umf-main__aside-link--active">
-            <span class="umf-main__aside-icon fa fa-users"></span>
-            <span class="umf-main__aside-text umf-main__aside-text--light">Friends</span></a>
-        </li>
-        <li class="umf-main__aside-item">
-          <a href="#" title="" class="umf-main__aside-link" [routerLink]="['/']">
-            <span class="umf-main__aside-icon fa fa-sign-out"></span>
-            <span class="umf-main__aside-text umf-main__aside-text--light">Logout</span></a>
-        </li>
-      </ul>
+      <div class="umf-main__aside-scroll">
+        <ul class="umf-main__aside-list">
+          <li class="umf-main__aside-item">
+            <a href="#" title="" class="umf-main__aside-link" [routerLink]="['explore']" routerLinkActive="umf-main__aside-link--active"
+              (click)="asideVisible = false">
+              <span class="umf-main__aside-icon fa fa-map-o"></span>
+              <span class="umf-main__aside-text umf-main__aside-text--light">Explore</span></a>
+          </li>
+          <li class="umf-main__aside-item">
+            <a href="#" title="" class="umf-main__aside-link" [routerLink]="['events']" routerLinkActive="umf-main__aside-link--active"
+              (click)="asideVisible = false">
+              <span class="umf-main__aside-icon fa fa-calendar-o"></span>
+              <span class="umf-main__aside-text umf-main__aside-text--light">Events</span></a>
+          </li>
+          <li class="umf-main__aside-item">
+            <a href="#" (click)="$event.preventDefault()" title="Shop section" class="umf-main__aside-link"
+              routerLinkActive="umf-main__aside-link--active">
+              <span class="umf-main__aside-icon fa fa-shopping-basket"></span>
+              <span class="umf-main__aside-text umf-main__aside-text--light">Shop</span>
+              <span class="umf-main__aside-status">SOON</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="umf-main__aside-list">
+          <li class="umf-main__aside-item">
+            <a href="#" title="Go to profile" class="umf-main__aside-link" (click)="openProfile($event);asideVisible = false">
+              <span class="umf-main__aside-icon fa fa-bars"></span>
+              <span class="umf-main__aside-text umf-main__aside-text--light">My profile</span>
+            </a>
+          </li>
+          <li class="umf-main__aside-item">
+            <a href="#" title="" class="umf-main__aside-link" [routerLink]="['mypets']" routerLinkActive="umf-main__aside-link--active" (click)="asideVisible = false">
+              <span class="umf-main__aside-icon fa fa-paw"></span>
+              <span class="umf-main__aside-text umf-main__aside-text--light">My pets</span></a>
+          </li>
+          <li class="umf-main__aside-item">
+            <a href="#" title="" class="umf-main__aside-link" [routerLink]="['friends']" routerLinkActive="umf-main__aside-link--active" (click)="asideVisible = false">
+              <span class="umf-main__aside-icon fa fa-users"></span>
+              <span class="umf-main__aside-text umf-main__aside-text--light">Friends</span></a>
+          </li>
+          <li class="umf-main__aside-item">
+            <a href="#" title="" class="umf-main__aside-link" [routerLink]="['/']">
+              <span class="umf-main__aside-icon fa fa-sign-out"></span>
+              <span class="umf-main__aside-text umf-main__aside-text--light">Logout</span></a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class=" umf-main__block" [class.umf-main__block--med-width]="asideVisible">
-    <header class="umf-main__header">
-      <div class="umf-main__header-container">
-        <a href="#" title="" class="umf-main__button fa fa-bars" (click)="turnAside($event)"></a>
-        <form class="umf-main__header-form">
-          <div class="umf-main__header-group">
-            <label class="umf-main__header-label">
-              <input type="text" placeholder="Search anything here" class="umf-main__header-input" autocorrect="off"
-                autocapitalize="off" spellcheck="off" id="search" required [(ngModel)]="searchValue" name="search" />
-            </label>
-            <button type="button" class="fa fa-search umf-main__header-button"></button>
-          </div>
-          <ng-container *ngIf="searchValue.length > 0">
-            <div class="umf-main__header-results">
-
-              <ul class="umf-main__header-list">
-                <li class="umf-main__header-item">
-                  <a href="#" title="" class="umf-main__header-link">Result 1</a>
-                </li>
-                <li class="umf-main__header-item">
-                  <a href="#" title="" class="umf-main__header-link">Result 1</a>
-                </li>
-                <li class="umf-main__header-item">
-                  <a href="#" title="" class="umf-main__header-link">Result 1</a>
-                </li>
-                <li class="umf-main__header-item">
-                  <a href="#" title="" class="umf-main__header-link">Result 1</a>
-                </li>
-                <li class="umf-main__header-item">
-                  <a href="#" title="" class="umf-main__header-link">Result 1</a>
-                </li>
-                <li class="umf-main__header-item">
-                  <a href="#" title="" class="umf-main__header-link">Result 1</a>
-                </li>
-                <li class="umf-main__header-item">
-                  <a href="#" title="" class="umf-main__header-link">Result 1</a>
-                </li>
-              </ul>
+  <div class=" umf-main__block">
+    <ng-container *ngIf="!asideVisible">
+      <header class="umf-main__header">
+        <div class="umf-main__header-container">
+          <a href="#" title="" class="umf-main__button fa fa-bars" (click)="turnAside($event)"></a>
+          <form class="umf-main__header-form">
+            <div class="umf-main__header-group">
+              <label class="umf-main__header-label">
+                <input type="text" placeholder="Search anything here" class="umf-main__header-input" autocorrect="off"
+                  autocapitalize="off" spellcheck="off" id="search" required [(ngModel)]="searchValue" name="search" />
+              </label>
+              <button type="button" class="fa fa-search umf-main__header-button"></button>
             </div>
-          </ng-container>
+            <ng-container *ngIf="searchValue.length > 0">
+              <div class="umf-main__header-results">
 
-        </form>
-        <div class="umf-main__header-info">
-          <div class="umf-main__header-dropdown">
-            <a href="#" class="umf-main__header-icon">
-              <span class="umf-main__header-notif">0</span>
-              <span class="fa fa-bell"></span>
-            </a>
-            <!-- <ng-container>
+                <ul class="umf-main__header-list">
+                  <li class="umf-main__header-item">
+                    <a href="#" title="" class="umf-main__header-link">Result 1</a>
+                  </li>
+                  <li class="umf-main__header-item">
+                    <a href="#" title="" class="umf-main__header-link">Result 1</a>
+                  </li>
+                  <li class="umf-main__header-item">
+                    <a href="#" title="" class="umf-main__header-link">Result 1</a>
+                  </li>
+                  <li class="umf-main__header-item">
+                    <a href="#" title="" class="umf-main__header-link">Result 1</a>
+                  </li>
+                  <li class="umf-main__header-item">
+                    <a href="#" title="" class="umf-main__header-link">Result 1</a>
+                  </li>
+                  <li class="umf-main__header-item">
+                    <a href="#" title="" class="umf-main__header-link">Result 1</a>
+                  </li>
+                  <li class="umf-main__header-item">
+                    <a href="#" title="" class="umf-main__header-link">Result 1</a>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
+
+          </form>
+
+          <div class="umf-main__header-info">
+            <div class="umf-main__header-dropdown">
+              <a href="#" class="umf-main__header-icon">
+                <span class="umf-main__header-notif">0</span>
+                <span class="fa fa-bell"></span>
+              </a>
+              <!-- <ng-container>
             <div class="umf-main__header-container">
               <ul class="umf-main__header-list">
                 <li class="umf-main__header-item">ad</li>
               </ul>
             </div>
           </ng-container> -->
+            </div>
+            <a href="#" class="umf-main__header-icon">
+              <span class="fa fa-cog"></span>
+            </a>
           </div>
-          <a href="#" class="umf-main__header-icon">
-            <span class="fa fa-cog"></span>
-          </a>
         </div>
-      </div>
-    </header>
+      </header>
+    </ng-container>
+    <ng-container *ngIf="asideVisible">
+      <div class="umf-main__overlay" (click)="asideVisible = false"></div>
+    </ng-container>
     <router-outlet></router-outlet>
   </div>
 </div>

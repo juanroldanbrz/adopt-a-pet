@@ -596,7 +596,6 @@ main {
     .umf-about {
         &__container {
             display: block;
-            padding-top: 40px;
         }
         &__block {
             width: 100% !important;
@@ -668,7 +667,6 @@ main {
     .umf-whatwedo {
         &__container {
             display: block;
-            padding-top: 100px;
         }
         &__block {
             width: 100%;
@@ -695,6 +693,22 @@ main {
         &__block {
             width: 100%;
             display: block;
+        }
+    }
+    .umf-layout {
+        #about {
+            padding-top: 100px;
+        }
+        #whatwedo {
+            padding-top: 250px;
+        }
+        #contact {
+            padding-top: 250px;
+            .umf-contact {
+                &:after {
+                    content: none;
+                }
+            }
         }
     }
 }
